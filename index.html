@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>時感密度 | 15分で時間を感じるアプリ</title>
+  <meta name="description" content="時感密度は、15分ごとの小さな通知で時間の流れを意識するためのシンプルなアプリです。時間管理ではなく、時間を感じるために。" />
+  <meta property="og:title" content="時感密度" />
+  <meta property="og:description" content="15分ごとの小さな通知で、人生の体感密度を上げるアプリ。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111827" />
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --ink: #151515;
+      --muted: #66615a;
+      --card: rgba(255,255,255,.72);
+      --line: rgba(21,21,21,.12);
+      --accent: #111827;
+      --accent2: #d97706;
+      --shadow: 0 22px 70px rgba(17,24,39,.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(217,119,6,.20), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(17,24,39,.12), transparent 30%),
+        var(--bg);
+      line-height: 1.75;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 22px 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .logo { font-weight: 800; letter-spacing: .08em; }
+    .navlinks { display: flex; gap: 18px; font-size: 14px; color: var(--muted); }
+    .hero { padding: 76px 0 54px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 42px; align-items: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); padding: 8px 12px; border-radius: 999px; font-size: 14px; color: var(--muted); backdrop-filter: blur(10px); }
+    h1 { font-size: clamp(44px, 7vw, 86px); line-height: 1.02; letter-spacing: -.05em; margin: 22px 0 18px; }
+    .lead { font-size: clamp(18px, 2.1vw, 24px); color: #2d2a26; margin: 0 0 28px; max-width: 680px; }
+    .sublead { color: var(--muted); max-width: 620px; margin-bottom: 32px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 999px; text-decoration: none; font-weight: 700; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: white; box-shadow: var(--shadow); }
+    .btn.secondary { background: rgba(255,255,255,.42); }
+    .phone { width: min(360px, 100%); margin: 0 auto; border-radius: 42px; padding: 14px; background: #171717; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .screen { min-height: 640px; border-radius: 32px; background: linear-gradient(180deg, #fffaf0, #f6ead8); padding: 34px 24px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+    .time { font-size: 72px; font-weight: 900; letter-spacing: -.06em; line-height: 1; }
+    .caption { color: var(--muted); font-weight: 700; }
+    .circle { width: 210px; height: 210px; border-radius: 50%; margin: 34px auto; background: conic-gradient(from 0deg, #111827 0 25%, rgba(17,24,39,.08) 25% 100%); display: grid; place-items: center; }
+    .circle span { width: 156px; height: 156px; border-radius: 50%; background: #fff7e8; display: grid; place-items: center; font-size: 44px; font-weight: 900; }
+    .notice { border: 1px solid var(--line); border-radius: 24px; padding: 16px; background: rgba(255,255,255,.55); }
+    section { padding: 58px 0; }
+    .section-title { font-size: clamp(28px, 4vw, 46px); line-height: 1.15; letter-spacing: -.04em; margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 24px; box-shadow: 0 12px 40px rgba(17,24,39,.06); backdrop-filter: blur(10px); }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .card p { margin: 0; color: var(--muted); }
+    .quote { font-size: clamp(26px, 4.2vw, 52px); line-height: 1.25; letter-spacing: -.04em; margin: 0; }
+    .quote strong { color: var(--accent2); }
+    .privacy { color: var(--muted); font-size: 14px; }
+    footer { padding: 38px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 42px; }
+      .phone { transform: none; }
+      .grid { grid-template-columns: 1fr; }
+      .navlinks { display: none; }
+      .screen { min-height: 560px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="logo">時感密度</div>
+        <div class="navlinks">
+          <a href="#features">機能</a>
+          <a href="#concept">思想</a>
+          <a href="privacy.html">プライバシー</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <div class="badge">15分ごとの通知で、時間の流れに気づく</div>
+        <h1>時間管理ではなく、<br>時間を感じる。</h1>
+        <p class="lead">時感密度は、15分という小さな区切りで毎日の流れを意識するためのシンプルなアプリです。</p>
+        <p class="sublead">忙しい日ほど、1日はあっという間に過ぎていきます。小さな通知をきっかけに「今」を取り戻し、人生の体感密度を少しずつ上げていきます。</p>
+        <div class="actions">
+          <a class="btn primary" href="#" aria-label="App Storeで見る">App Storeで見る</a>
+          <a class="btn secondary" href="#features">機能を見る</a>
+        </div>
+      </div>
+
+      <div class="phone" aria-label="アプリ画面イメージ">
+        <div class="screen">
+          <div>
+            <div class="caption">次の15分</div>
+            <div class="time">15:00</div>
+          </div>
+          <div class="circle"><span>15</span></div>
+          <div class="notice">
+            <strong>通知：設定中</strong><br>
+            8:00〜22:45の間、15分ごとに時間を知らせます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2 class="section-title">余計な機能を増やさず、<br>時間への意識だけを残しました。</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>15分ごとの通知</h3>
+            <p>短すぎず長すぎない15分の区切りで、自然に時間の流れを思い出せます。</p>
+          </div>
+          <div class="card">
+            <h3>生活時間に合わせる</h3>
+            <p>通知時間帯を生活リズムに合わせ、必要な時間だけ使えます。</p>
+          </div>
+          <div class="card">
+            <h3>シンプル操作</h3>
+            <p>難しい設定は最小限。集中、習慣化、日々のリズムづくりに使いやすい設計です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept">
+      <div class="wrap card">
+        <p class="quote">1日は24時間。<br>でも、<strong>感じ方</strong>は変えられる。</p>
+        <p class="sublead">時感密度は、作業効率だけを追いかけるアプリではありません。流れていく時間に気づき、今日という1日を少し濃く感じるための道具です。</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">こんな人におすすめ</h2>
+        <div class="grid">
+          <div class="card"><h3>気づくと1日が終わる</h3><p>時間の流れを途中で思い出したい人へ。</p></div>
+          <div class="card"><h3>集中のきっかけが欲しい</h3><p>15分単位で小さく行動を切り替えたい人へ。</p></div>
+          <div class="card"><h3>毎日を濃くしたい</h3><p>時間をただ消費せず、感じながら過ごしたい人へ。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap card">
+        <h2 class="section-title">プライバシーについて</h2>
+        <p class="privacy">時感密度は、シンプルな通知アプリです。詳細は <a href="privacy.html">プライバシーポリシー</a> をご確認ください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 時感密度 / Timer15</div>
+  </footer>
+</body>
+</html>

@@ -1,38 +1,24 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>時感密度 | Jikan Density</title>
-<meta name="description" content="時感密度 / Jikan Density は、15分ごとの通知で時間の流れを感じるためのアプリです。日本語、英語、中国語、インドネシア語、スペイン語、ポルトガル語対応。">
+<meta name="description" content="15分ごとの通知で時間の流れを感じるアプリ。">
 <style>
-:root{--bg:#f7f3ea;--ink:#111827;--muted:#60646c;--card:#fff;--line:rgba(17,24,39,.12);--accent:#111827;--gold:#d97706}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;background:radial-gradient(circle at 15% 0,rgba(217,119,6,.18),transparent 32%),radial-gradient(circle at 90% 5%,rgba(17,24,39,.12),transparent 34%),var(--bg);color:var(--ink);line-height:1.75}a{color:inherit}.wrap{max-width:1080px;margin:auto;padding:0 20px}header{padding:22px 0;border-bottom:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}.top{display:flex;justify-content:space-between;align-items:center;gap:16px}.logo{font-weight:900;letter-spacing:.08em}.nav{display:flex;gap:10px;flex-wrap:wrap}.nav a{font-size:14px;text-decoration:none;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.75)}.hero{padding:78px 0 44px}.badge{display:inline-block;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);color:var(--muted)}h1{font-size:clamp(44px,8vw,88px);line-height:1.04;letter-spacing:-.06em;margin:24px 0 20px}.lead{font-size:clamp(18px,2.3vw,25px);max-width:760px;color:#2d2a26}.store{display:inline-flex;margin-top:20px;padding:14px 22px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800}.section{padding:42px 0}.card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 16px 50px rgba(17,24,39,.08);backdrop-filter:blur(8px)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}.langtag{display:inline-block;font-size:13px;color:#fff;background:var(--accent);border-radius:999px;padding:5px 10px;margin-bottom:12px}.langcard h2{font-size:30px;line-height:1.2;margin:0 0 10px;letter-spacing:-.03em}.langcard p{color:var(--muted);margin:0 0 12px}.quote{font-size:clamp(26px,4.5vw,50px);line-height:1.28;letter-spacing:-.04em;margin:0}.quote strong{color:var(--gold)}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.mini h3{margin:0 0 8px}.mini p{margin:0;color:var(--muted)}footer{padding:42px 0;color:var(--muted);border-top:1px solid var(--line)}@media(max-width:760px){.top{align-items:flex-start;flex-direction:column}.hero{padding-top:48px}.nav a{font-size:13px}}
-</style>
-</head>
+:root{--bg:#f7f3ea;--ink:#111827;--muted:#60646c;--card:#fff;--line:rgba(17,24,39,.12);--accent:#111827;--gold:#d97706}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;background:radial-gradient(circle at 15% 0,rgba(217,119,6,.18),transparent 32%),radial-gradient(circle at 90% 5%,rgba(17,24,39,.12),transparent 34%),var(--bg);color:var(--ink);line-height:1.75}
+a{color:inherit}.wrap{max-width:1080px;margin:auto;padding:0 20px}header{padding:22px 0;border-bottom:1px solid var(--line);background:rgba(255,255,255,.78);position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.logo{font-weight:900;letter-spacing:.06em}.nav{display:flex;gap:10px;flex-wrap:wrap}.nav a{font-size:14px;text-decoration:none;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.hero{padding:78px 0 44px}.badge{display:inline-block;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);color:var(--muted)}h1{font-size:clamp(44px,8vw,88px);line-height:1.04;letter-spacing:-.06em;margin:24px 0 20px}.lead{font-size:clamp(18px,2.3vw,25px);max-width:760px;color:#2d2a26}.store{display:inline-flex;margin-top:20px;padding:14px 22px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800}.section{padding:42px 0}.card{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 16px 50px rgba(17,24,39,.08);backdrop-filter:blur(8px)}.quote{font-size:clamp(26px,4.5vw,50px);line-height:1.28;letter-spacing:-.04em;margin:0}.quote strong{color:var(--gold)}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.mini h3{margin:0 0 8px}.mini p{margin:0;color:var(--muted)}footer{padding:42px 0;color:var(--muted);border-top:1px solid var(--line)}
+</style></head>
 <body>
-<header><div class="wrap top"><div class="logo">時感密度 / Jikan Density</div><nav class="nav"><a href="#ja">日本語</a><a href="#en">English</a><a href="#zh">中文</a><a href="#id">Indonesia</a><a href="#es">Español</a><a href="#pt">Português</a><a href="privacy.html">Privacy</a></nav></div></header>
+<header><div class="wrap top"><div class="logo">時感密度 / Jikan Density</div><nav class="nav">
+<a href="index.html">日本語</a><a href="en.html">English</a><a href="zh.html">中文</a><a href="id.html">Indonesia</a><a href="es.html">Español</a><a href="pt.html">Português</a><a href="privacy.html">Privacy</a>
+</nav></div></header>
 <main>
-<section class="wrap hero">
-<span class="badge">15分ごとの小さな通知で、時間の流れに気づく</span>
-<h1>時間管理ではなく、<br>時間を感じる。</h1>
-<p class="lead">時感密度は、15分という小さな区切りで毎日の流れを意識するためのシンプルなアプリです。</p>
-<a class="store" href="#">App Storeで見る</a>
-</section>
-<section class="wrap section"><div class="card"><p class="quote">1日は24時間。<br>でも、<strong>感じ方</strong>は変えられる。</p></div></section>
+<section class="wrap hero"><span class="badge">15分ごとの小さな通知で、時間の流れに気づく</span><h1>時間管理ではなく、<br>時間を感じる。</h1><p class="lead">時感密度は、15分という小さな区切りで毎日の流れを意識するためのシンプルなアプリです。</p><a class="store" href="#">App Storeで見る</a></section>
+<section class="wrap section"><div class="card"><p class="quote">1日は24時間。<br>でも、<strong>感じ方</strong>は変えられる。</p><p class="lead">忙しい日常の中で、時間への意識を取り戻すためのシンプルな道具です。</p></div></section>
 <section class="wrap section"><div class="features">
-<div class="card mini"><h3>15分通知</h3><p>短すぎず長すぎない区切りで、自然に時間を思い出せます。</p></div>
-<div class="card mini"><h3>シンプル設計</h3><p>余計な機能を削ぎ落とし、時間への意識だけを残しました。</p></div>
-<div class="card mini"><h3>集中サポート</h3><p>今日という1日を少し濃く感じるための道具です。</p></div>
+<div class="card mini"><h3>15分通知</h3><p>短すぎず長すぎない区切りで、自然に時間を思い出せます。</p></div><div class="card mini"><h3>シンプル設計</h3><p>余計な機能を削ぎ落とし、時間への意識だけを残しました。</p></div><div class="card mini"><h3>集中サポート</h3><p>今日という1日を少し濃く感じるための道具です。</p></div>
 </div></section>
-<section class="wrap section"><h2>Languages</h2><div class="grid">
-<article class="card langcard" id="ja"><span class="langtag">日本語</span><h2>時間管理ではなく、時間を感じる。</h2><p>時感密度は、15分ごとの小さな通知で時間の流れを意識するためのアプリです。</p><p>忙しい日常の中で、時間への意識を取り戻すためのシンプルな道具です。</p></article>
-<article class="card langcard" id="en"><span class="langtag">English</span><h2>Feel Time, Don’t Just Manage It.</h2><p>Jikan Density helps you notice the flow of time through gentle 15-minute notifications.</p><p>A simple tool to regain awareness of time in a busy life.</p></article>
-<article class="card langcard" id="zh"><span class="langtag">中文</span><h2>不是管理时间，而是感受时间。</h2><p>时感密度通过每15分钟的小提醒，让你重新意识到时间的流动。</p><p>帮助你在忙碌生活中重新感受时间。</p></article>
-<article class="card langcard" id="id"><span class="langtag">Indonesia</span><h2>Bukan mengatur waktu, tetapi merasakan waktu.</h2><p>Jikan Density membantu Anda menyadari aliran waktu dengan notifikasi setiap 15 menit.</p><p>Alat sederhana untuk menyadari waktu di tengah kesibukan.</p></article>
-<article class="card langcard" id="es"><span class="langtag">Español</span><h2>No gestiones el tiempo. Siéntelo.</h2><p>Jikan Density te ayuda a percibir el flujo del tiempo con notificaciones cada 15 minutos.</p><p>Una herramienta simple para recuperar la conciencia del tiempo.</p></article>
-<article class="card langcard" id="pt"><span class="langtag">Português</span><h2>Não gerencie o tempo. Sinta o tempo.</h2><p>Jikan Density ajuda você a perceber o fluxo do tempo com notificações a cada 15 minutos.</p><p>Uma ferramenta simples para recuperar a consciência do tempo.</p></article>
-</div></section>
-</main>
-<footer><div class="wrap">© 2026 時感密度 / Timer15</div></footer>
-</body>
-</html>
+</main><footer><div class="wrap">© 2026 時感密度 / Timer15</div></footer>
+</body></html>

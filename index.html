@@ -1,167 +1,57 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>時感密度 | 15分で時間を感じるアプリ</title>
-  <meta name="description" content="時感密度は、15分ごとの小さな通知で時間の流れを意識するためのシンプルなアプリです。時間管理ではなく、時間を感じるために。" />
-  <meta property="og:title" content="時感密度" />
-  <meta property="og:description" content="15分ごとの小さな通知で、人生の体感密度を上げるアプリ。" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#111827" />
-  <style>
-    :root {
-      --bg: #f7f3ea;
-      --ink: #151515;
-      --muted: #66615a;
-      --card: rgba(255,255,255,.72);
-      --line: rgba(21,21,21,.12);
-      --accent: #111827;
-      --accent2: #d97706;
-      --shadow: 0 22px 70px rgba(17,24,39,.14);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 18% 8%, rgba(217,119,6,.20), transparent 28%),
-        radial-gradient(circle at 80% 0%, rgba(17,24,39,.12), transparent 30%),
-        var(--bg);
-      line-height: 1.75;
-    }
-    a { color: inherit; }
-    .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
-    header { padding: 22px 0; }
-    nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .logo { font-weight: 800; letter-spacing: .08em; }
-    .navlinks { display: flex; gap: 18px; font-size: 14px; color: var(--muted); }
-    .hero { padding: 76px 0 54px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 42px; align-items: center; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); padding: 8px 12px; border-radius: 999px; font-size: 14px; color: var(--muted); backdrop-filter: blur(10px); }
-    h1 { font-size: clamp(44px, 7vw, 86px); line-height: 1.02; letter-spacing: -.05em; margin: 22px 0 18px; }
-    .lead { font-size: clamp(18px, 2.1vw, 24px); color: #2d2a26; margin: 0 0 28px; max-width: 680px; }
-    .sublead { color: var(--muted); max-width: 620px; margin-bottom: 32px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 999px; text-decoration: none; font-weight: 700; border: 1px solid var(--accent); }
-    .btn.primary { background: var(--accent); color: white; box-shadow: var(--shadow); }
-    .btn.secondary { background: rgba(255,255,255,.42); }
-    .phone { width: min(360px, 100%); margin: 0 auto; border-radius: 42px; padding: 14px; background: #171717; box-shadow: var(--shadow); transform: rotate(2deg); }
-    .screen { min-height: 640px; border-radius: 32px; background: linear-gradient(180deg, #fffaf0, #f6ead8); padding: 34px 24px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
-    .time { font-size: 72px; font-weight: 900; letter-spacing: -.06em; line-height: 1; }
-    .caption { color: var(--muted); font-weight: 700; }
-    .circle { width: 210px; height: 210px; border-radius: 50%; margin: 34px auto; background: conic-gradient(from 0deg, #111827 0 25%, rgba(17,24,39,.08) 25% 100%); display: grid; place-items: center; }
-    .circle span { width: 156px; height: 156px; border-radius: 50%; background: #fff7e8; display: grid; place-items: center; font-size: 44px; font-weight: 900; }
-    .notice { border: 1px solid var(--line); border-radius: 24px; padding: 16px; background: rgba(255,255,255,.55); }
-    section { padding: 58px 0; }
-    .section-title { font-size: clamp(28px, 4vw, 46px); line-height: 1.15; letter-spacing: -.04em; margin: 0 0 16px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 24px; box-shadow: 0 12px 40px rgba(17,24,39,.06); backdrop-filter: blur(10px); }
-    .card h3 { margin: 0 0 8px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); }
-    .quote { font-size: clamp(26px, 4.2vw, 52px); line-height: 1.25; letter-spacing: -.04em; margin: 0; }
-    .quote strong { color: var(--accent2); }
-    .privacy { color: var(--muted); font-size: 14px; }
-    footer { padding: 38px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; padding-top: 42px; }
-      .phone { transform: none; }
-      .grid { grid-template-columns: 1fr; }
-      .navlinks { display: none; }
-      .screen { min-height: 560px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>時感密度 | Jikan Density</title>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;background:#f7f3ea;color:#111;line-height:1.7}header{padding:20px;border-bottom:1px solid #ddd;background:#fff;position:sticky;top:0}.wrap{max-width:1000px;margin:auto;padding:0 20px}.hero{padding:80px 0}.lang{display:flex;gap:8px;flex-wrap:wrap}.lang button{padding:10px 14px;border:none;border-radius:999px;background:#111;color:#fff;cursor:pointer}.card{background:#fff;padding:28px;border-radius:24px;margin-top:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}h1{font-size:clamp(40px,8vw,82px);line-height:1.05;letter-spacing:-.05em}h2{font-size:32px}p{font-size:18px;color:#444}.store{display:inline-block;margin-top:20px;padding:14px 22px;border-radius:999px;background:#111827;color:#fff;text-decoration:none;font-weight:700}.quote{font-size:clamp(28px,5vw,54px);line-height:1.3}.muted{color:#666}footer{padding:40px 0;color:#666}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.mini{font-size:15px}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="logo">時感密度</div>
-        <div class="navlinks">
-          <a href="#features">機能</a>
-          <a href="#concept">思想</a>
-          <a href="privacy.html">プライバシー</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero wrap">
-      <div>
-        <div class="badge">15分ごとの通知で、時間の流れに気づく</div>
-        <h1>時間管理ではなく、<br>時間を感じる。</h1>
-        <p class="lead">時感密度は、15分という小さな区切りで毎日の流れを意識するためのシンプルなアプリです。</p>
-        <p class="sublead">忙しい日ほど、1日はあっという間に過ぎていきます。小さな通知をきっかけに「今」を取り戻し、人生の体感密度を少しずつ上げていきます。</p>
-        <div class="actions">
-          <a class="btn primary" href="#" aria-label="App Storeで見る">App Storeで見る</a>
-          <a class="btn secondary" href="#features">機能を見る</a>
-        </div>
-      </div>
-
-      <div class="phone" aria-label="アプリ画面イメージ">
-        <div class="screen">
-          <div>
-            <div class="caption">次の15分</div>
-            <div class="time">15:00</div>
-          </div>
-          <div class="circle"><span>15</span></div>
-          <div class="notice">
-            <strong>通知：設定中</strong><br>
-            8:00〜22:45の間、15分ごとに時間を知らせます。
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features">
-      <div class="wrap">
-        <h2 class="section-title">余計な機能を増やさず、<br>時間への意識だけを残しました。</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>15分ごとの通知</h3>
-            <p>短すぎず長すぎない15分の区切りで、自然に時間の流れを思い出せます。</p>
-          </div>
-          <div class="card">
-            <h3>生活時間に合わせる</h3>
-            <p>通知時間帯を生活リズムに合わせ、必要な時間だけ使えます。</p>
-          </div>
-          <div class="card">
-            <h3>シンプル操作</h3>
-            <p>難しい設定は最小限。集中、習慣化、日々のリズムづくりに使いやすい設計です。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="concept">
-      <div class="wrap card">
-        <p class="quote">1日は24時間。<br>でも、<strong>感じ方</strong>は変えられる。</p>
-        <p class="sublead">時感密度は、作業効率だけを追いかけるアプリではありません。流れていく時間に気づき、今日という1日を少し濃く感じるための道具です。</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <h2 class="section-title">こんな人におすすめ</h2>
-        <div class="grid">
-          <div class="card"><h3>気づくと1日が終わる</h3><p>時間の流れを途中で思い出したい人へ。</p></div>
-          <div class="card"><h3>集中のきっかけが欲しい</h3><p>15分単位で小さく行動を切り替えたい人へ。</p></div>
-          <div class="card"><h3>毎日を濃くしたい</h3><p>時間をただ消費せず、感じながら過ごしたい人へ。</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap card">
-        <h2 class="section-title">プライバシーについて</h2>
-        <p class="privacy">時感密度は、シンプルな通知アプリです。詳細は <a href="privacy.html">プライバシーポリシー</a> をご確認ください。</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">© 2026 時感密度 / Timer15</div>
-  </footer>
+<header>
+<div class="wrap">
+<div class="lang">
+<button onclick="setLang('ja')">日本語</button>
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('zh')">中文</button>
+<button onclick="setLang('id')">Indonesia</button>
+<button onclick="setLang('es')">Español</button>
+<button onclick="setLang('pt')">Português</button>
+</div>
+</div>
+</header>
+<main class="wrap hero">
+<div class="card">
+<h1 id="title"></h1>
+<p id="lead"></p>
+<a class="store" href="#" id="store"></a>
+</div>
+<div class="card">
+<h2 id="conceptTitle"></h2>
+<p class="quote" id="quote"></p>
+<p class="muted" id="concept"></p>
+</div>
+<div class="grid">
+<div class="card"><h3 id="f1"></h3><p class="mini" id="f1d"></p></div>
+<div class="card"><h3 id="f2"></h3><p class="mini" id="f2d"></p></div>
+<div class="card"><h3 id="f3"></h3><p class="mini" id="f3d"></p></div>
+</div>
+</main>
+<footer>
+<div class="wrap">© 2026 時感密度 / Timer15</div>
+</footer>
+<script>
+const t={
+ja:{title:'時間管理ではなく、時間を感じる。',lead:'時感密度は、15分ごとの小さな通知で時間の流れを意識するためのアプリです。',store:'App Storeで見る',conceptTitle:'15分哲学',quote:'1日は24時間。でも、感じ方は変えられる。',concept:'忙しい日常の中で、時間への意識を取り戻すためのシンプルな道具です。',f1:'15分通知',f1d:'短すぎず長すぎない絶妙な区切り。',f2:'シンプル設計',f2d:'余計な機能を削ぎ落としました。',f3:'集中サポート',f3d:'毎日を少し濃く感じるために。'},
+en:{title:'Feel Time, Don’t Just Manage It.',lead:'Jikan Density helps you notice the flow of time through gentle 15‑minute notifications.',store:'View on App Store',conceptTitle:'15 Minute Philosophy',quote:'A day is always 24 hours. But the feeling of it can change.',concept:'A simple tool to regain awareness of time in a busy life.',f1:'15 Minute Alerts',f1d:'A perfect balance between short and long.',f2:'Minimal Design',f2d:'Only the essentials remain.',f3:'Focus Support',f3d:'Make every day feel richer.'},
+zh:{title:'不是管理时间，而是感受时间。',lead:'时感密度通过每15分钟的小提醒，让你重新意识到时间的流动。',store:'在App Store查看',conceptTitle:'15分钟哲学',quote:'一天始终是24小时，但感受可以改变。',concept:'帮助你在忙碌生活中重新感受时间。',f1:'15分钟提醒',f1d:'不过短，也不过长。',f2:'极简设计',f2d:'去掉多余功能。',f3:'专注辅助',f3d:'让每天更有密度。'},
+id:{title:'Bukan mengatur waktu, tetapi merasakan waktu.',lead:'Jikan Density membantu Anda menyadari aliran waktu dengan notifikasi setiap 15 menit.',store:'Lihat di App Store',conceptTitle:'Filosofi 15 Menit',quote:'Satu hari tetap 24 jam. Tetapi rasanya bisa berbeda.',concept:'Alat sederhana untuk menyadari waktu di tengah kesibukan.',f1:'Notifikasi 15 Menit',f1d:'Tidak terlalu pendek, tidak terlalu panjang.',f2:'Desain Sederhana',f2d:'Hanya fitur penting.',f3:'Dukungan Fokus',f3d:'Buat harimu terasa lebih bermakna.'},
+es:{title:'No gestiones el tiempo. Siéntelo.',lead:'Jikan Density te ayuda a percibir el flujo del tiempo con notificaciones cada 15 minutos.',store:'Ver en App Store',conceptTitle:'Filosofía de 15 Minutos',quote:'Un día siempre tiene 24 horas. Pero la sensación puede cambiar.',concept:'Una herramienta simple para recuperar la conciencia del tiempo.',f1:'Alertas de 15 Minutos',f1d:'Ni demasiado cortas ni largas.',f2:'Diseño Minimalista',f2d:'Solo lo esencial.',f3:'Ayuda para Concentrarse',f3d:'Haz que cada día se sienta más intenso.'},
+pt:{title:'Não gerencie o tempo. Sinta o tempo.',lead:'Jikan Density ajuda você a perceber o fluxo do tempo com notificações a cada 15 minutos.',store:'Ver na App Store',conceptTitle:'Filosofia dos 15 Minutos',quote:'Um dia sempre tem 24 horas. Mas a sensação pode mudar.',concept:'Uma ferramenta simples para recuperar a consciência do tempo.',f1:'Alertas de 15 Minutos',f1d:'Nem curto demais, nem longo demais.',f2:'Design Minimalista',f2d:'Apenas o essencial.',f3:'Suporte ao Foco',f3d:'Faça cada dia parecer mais intenso.'}
+};
+function setLang(l){const d=t[l];for(const k in d){document.getElementById(k).innerHTML=d[k];}}
+setLang('ja');
+</script>
 </body>
 </html>
